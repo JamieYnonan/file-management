@@ -1,3 +1,9 @@
+.DS_Store
 composer.phar
-/vendor/
-.idea/
+.idea
+/vendor
+Thumbs.db
+.buildpath
+.project
+.settings
+nbproject

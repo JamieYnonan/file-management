@@ -2,9 +2,6 @@
     "name": "jamieynonan/file-management",
     "description": "this class can import files from a url or move, copy and rename an existing file on the server",
     "type": "library",
-    "require-dev": {
-        "phpunit/phpunit": "5.3.*"
-    },
     "license": "GLP-2.0",
     "authors": [
         {

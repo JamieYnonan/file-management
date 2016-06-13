@@ -102,6 +102,8 @@ class File implements FileInterface
     }
 
     /**
+     * validates if the file mime type is correct
+     *
      * @param string $mime
      * @return bool
      */
@@ -112,6 +114,8 @@ class File implements FileInterface
     }
 
     /**
+     * set the path to save the file
+     *
      * @param $path
      * @throws \InvalidArgumentException if path can not be empty
      * @throws \LogicException if can not create the dir
@@ -163,6 +167,10 @@ class File implements FileInterface
     }
 
     /**
+     * copy in another folder
+     *
+     * Only allowed for internal files (on the server)
+     *
      * @param string $newPath
      * @param string|null $newOnlyName
      * @throws \UnexpectedValueException if the file is link
@@ -189,6 +197,8 @@ class File implements FileInterface
     }
 
     /**
+     * Only allowed for internal files (on the server)
+     *
      * @param string $newPath
      * @throws \UnexpectedValueException if the file is link
      * @return bool
@@ -209,6 +219,8 @@ class File implements FileInterface
     }
 
     /**
+     * Only allowed for internal files (on the server)
+     *
      * @param string $newOnlyName
      * @throws \UnexpectedValueException if the file is link
      * @return bool
@@ -251,9 +263,9 @@ class File implements FileInterface
      */
     private function setName($onlyName = null)
     {
-        $this->name = ($onlyName === null)
-            ? $this->file->getBasename('.' . $this->file->getExtension())
-            : $onlyName;
+        $this->name = (!empty($onlyName) && is_string($onlyName))
+            ? $onlyName
+            : $this->file->getBasename('.' . $this->file->getExtension());
         $this->name .= '.' .$this->file->getExtension();
         $this->setFullPath();
     }
