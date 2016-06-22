@@ -5,6 +5,9 @@ Questa libreria può imporatare file da una url oppure spostare, copiare e rinom
 
 # example
 ```php
+use FileManagement\File;
+
+
 $imgLocal = new File(__DIR__ .'/file.jpg'); //file
 $imgUrl = new File('http://site.com/files/image.png'); //link
 ```
