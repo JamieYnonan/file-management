@@ -11,7 +11,7 @@ use FileManagement\File;
 $imgLocal = new File(__DIR__ .'/file.jpg'); //file
 $imgUrl = new File('http://site.com/files/image.png'); //link
 ```
-validate mime (options - recommend)
+validate mime (optional - recommend)
 ```php
 //return bool
 $imgLocal->validateMime('image/jpge');
@@ -20,7 +20,7 @@ $imgUrl->validateMime('image/png');
 save file
 ```php
 first set the path to save the file
-$imgLocal->setPath(__DIR__ '/files');
+$imgLocal->setPath(__DIR__ . '/files');
 $imgUrl->setPath('/path/local/where/save/file');
 
 $imgLocal->save();
