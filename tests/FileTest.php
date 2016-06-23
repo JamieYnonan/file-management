@@ -41,12 +41,21 @@ class FileTest extends PHPUnit_Framework_TestCase
     public function testValidateMimeOkLocal($mime)
     {
         $this->assertTrue($this->fileLocal->validateMime($mime));
-        return $this->fileLocal->getMime();
+    }
+
+    public function testValidateMimeArrayOkLocal()
+    {
+        $this->assertTrue($this->fileLocal->validateMime(['image/svg+xml', 'image/png']));
     }
 
     public function testValidateMimeFailLocal()
     {
         $this->assertFalse($this->fileLocal->validateMime('invalid/mime'));
+    }
+
+    public function testValidateMimeArrayFailLocal()
+    {
+        $this->assertFalse($this->fileLocal->validateMime(['invalid/mime', 'mime/invalid']));
     }
 
     /**
@@ -55,12 +64,21 @@ class FileTest extends PHPUnit_Framework_TestCase
     public function testValidateMimeOkUrl($mime)
     {
         $this->assertTrue($this->fileUrl->validateMime($mime));
-        return $this->fileUrl->getMime();
+    }
+
+    public function testValidateMimeArrayOkUrl()
+    {
+        $this->assertTrue($this->fileUrl->validateMime(['image/svg+xml', 'image/png']));
     }
 
     public function testValidateMimeFailUrl()
     {
         $this->assertFalse($this->fileUrl->validateMime('invalid/mime'));
+    }
+
+    public function testValidateMimeArrayFailUrl()
+    {
+        $this->assertFalse($this->fileUrl->validateMime(['invalid/mime', 'mime/invalid']));
     }
 
     /**

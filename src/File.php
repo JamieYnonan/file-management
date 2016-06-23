@@ -8,7 +8,7 @@ namespace FileManagement;
  *
  * @package FileManagement
  * @author Jamie Ynonan <jamiea31@gmail.com>
- * @version 1.0.0
+ * @version 1.0.1
  */
 class File implements FileInterface
 {
@@ -104,12 +104,15 @@ class File implements FileInterface
     /**
      * validates if the file mime type is correct
      *
-     * @param string $mime
+     * @param string|array $mime
      * @return bool
      */
     public function validateMime($mime)
     {
-        $this->isValid = ($mime === $this->mime);
+        $this->isValid = (is_array($mime))
+            ? in_array($this->mime, $mime, true)
+            : ($mime === $this->mime);
+
         return $this->isValid;
     }
 
