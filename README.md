@@ -14,7 +14,7 @@ $imgUrl = new File('http://site.com/files/image.png'); //link
 validate mime (optional - recommend)
 ```php
 //return bool
-$imgLocal->validateMime('image/jpge');
+$imgLocal->validateMime('image/jpeg');
 $imgUrl->validateMime('image/png');
 ```
 save file
